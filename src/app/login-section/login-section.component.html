@@ -1,0 +1,30 @@
+<div class="cusContainer">
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group cusDis">
+      <label for="uName">UserName</label>
+      <input type="text" required class="form-control cusWdth" id="uName" [(ngModel)]="uName" 
+      name="userName"  #userName="ngModel" required>
+    </div>
+
+    <div class="form-group cusDis">
+      <label for="pswd">Password</label>
+      <input type="password" required class="form-control cusWdth" id="uPswd" [(ngModel)]="uPswd" 
+      name="scrtWrd"  #scrtWrd="ngModel">
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="navigateToNext()">Login</button>
+
+  </form>
+</div>
+
+
+
+
+<div [hidden]="userName.valid || userName.pristine" class="alert alert-danger">
+  Please enter username.
+</div>
+
+<div [hidden]="scrtWrd.valid || scrtWrd.pristine" class="alert alert-danger">
+  Please enter password.
+</div>
+
