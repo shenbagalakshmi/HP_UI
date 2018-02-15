@@ -9,8 +9,8 @@ import{Router} from '@angular/router'
 export class LoginSectionComponent implements OnInit {
 
 
-  uName:string="shenba";
-  uPswd:any="karthi";
+  uName:string="";
+  uPswd:any="";
   submitted = false;homeNav
 
   onSubmit() { this.submitted = true; }
