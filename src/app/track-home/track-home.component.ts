@@ -1,15 +1,20 @@
-import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation,AfterViewInit } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 import { ScriptLoaderService } from '../_services/script-loader.service';
-import {Helpers} from '../helpers'
+import {Helpers} from '../helpers';
+
+
+declare let mApp: any;
+declare let mUtil: any;
+declare let mLayout:any;
 @Component({
   selector: 'app-track-home',
   templateUrl: './track-home.component.html',
   styleUrls: ['./track-home.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class TrackHomeComponent implements OnInit {
+export class TrackHomeComponent implements OnInit,AfterViewInit {
 
 
    perentPrgs:number= 34;
@@ -20,6 +25,8 @@ export class TrackHomeComponent implements OnInit {
 
   ngOnInit() {
 
+    // mLayout.initHeader();
+
     this._script.loadScripts('body', ['assets/vendors/base/vendors.bundle.js', 'assets/demo/demo10/base/scripts.bundle.js'], true)
     .then(result => {
         Helpers.setLoading(false);
@@ -29,11 +36,23 @@ export class TrackHomeComponent implements OnInit {
 
     this.router.events.subscribe((route) => {
       if (route instanceof NavigationStart) {
+          (<any>mLayout).closeMobileAsideMenuOffcanvas();
+          (<any>mLayout).closeMobileHorMenuOffcanvas();
+          (<any>mApp).scrollTop();
           Helpers.setLoading(true);
-          Helpers.bodyClass(this.globalBodyClass);
+          // hide visible popover
+          (<any>$('[data-toggle="m-popover"]')).popover('hide');
       }
       if (route instanceof NavigationEnd) {
+          // init required js
+          (<any>mApp).init();
+          (<any>mUtil).init();
           Helpers.setLoading(false);
+          // content m-wrapper animation
+          let animation = 'm-animate-fade-in-up';
+          $('.m-wrapper').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e) {
+              $('.m-wrapper').removeClass(animation);
+          }).removeClass(animation).addClass(animation);
       }
   });
 
@@ -56,6 +75,10 @@ export class TrackHomeComponent implements OnInit {
     if(document.getElementById("aNav").classList.contains("nav-is-visible")){
       document.getElementById("aNav").classList.remove("nav-is-visible")
     }
+
+  }
+
+  ngAfterViewInit(){
 
   }
 }

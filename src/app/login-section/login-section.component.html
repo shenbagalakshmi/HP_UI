@@ -7,20 +7,20 @@
       <!-- <label class="control-label" for="uName"></label> -->
       <input type="text" required class="form-control cusWdth" id="uName" [(ngModel)]="uName" 
       name="userName"  #userName="ngModel"  placeholder="Username"required>
-      <i class="form-control-feedback glyphicon glyphicon-user" style="top: 0.5px;
-      right: 218px;"></i>
+      <i class="form-control-feedback glyphicon glyphicon-user" style="top:7.5px;
+      right:279px;"></i>
     </div>
 
     <div class="form-group  has-feedback">
       <!-- <label for="pswd">Password</label> -->
       <input type="password" required class="form-control cusWdth" id="uPswd" [(ngModel)]="uPswd" 
       name="scrtWrd"  #scrtWrd="ngModel" placeholder="Password">
-      <i class="form-control-feedback glyphicon glyphicon-log-in" style="top: 0.5px;
-      right: 218px;"></i>
+      <i class="form-control-feedback glyphicon glyphicon-log-in" style="top:7.5px;
+      right:279px;"></i>
     </div>
 
     <a href="" style="font-style: oblique;color: blue;">Forgot Password?</a>
-    <button type="submit" class="btn btn-success" (click)="navigateToNext()">LOGIN</button>
+    <button type="submit" class="btn btn-success" (click)="saveDetailAandNavigate()">LOGIN</button>
 
   </form>
 </div>

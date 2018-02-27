@@ -1,7 +1,3 @@
-<app-dashboard-header></app-dashboard-header>
-<!-- begin::Body -->
-<!-- <router-outlet></router-outlet> -->
-<!-- begin::Page loader -->
 <div class="m-page-loader m-page-loader--base m-page-loader--non-block" style="margin-left: -80px; margin-top: -20px;">
 	<div class="m-blockui">
 		<span>
@@ -23,13 +19,23 @@
 		</span>
 	</div>
 </div>
+
+
+
+
+<app-dashboard-header></app-dashboard-header>
+<!-- begin::Body -->
+<!-- <router-outlet></router-outlet> -->
+<!-- begin::Page loader -->
+
 <!-- end::Page Loader -->             	<!-- begin:: Page -->
 <router-outlet></router-outlet>
 <!-- end:: Page -->
-<app-aside-nav></app-aside-nav>
+<!-- <app-aside-nav></app-aside-nav> -->
+<app-dashboard-details></app-dashboard-details>
 <app-quick-sidebar></app-quick-sidebar>
 <app-scroll-top></app-scroll-top>
-<app-tooltips></app-tooltips>  
+<!-- <app-tooltips></app-tooltips>   -->
 
 <script>
 	             $(window).on('load', function() {                 $('body').removeClass('m-page--loading');                      });         
