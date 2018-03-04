@@ -1,0 +1,16 @@
+.card {
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    width: 30%;
+    height: 45em;
+    margin-left: 27em;
+    margin-top: 8em;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
