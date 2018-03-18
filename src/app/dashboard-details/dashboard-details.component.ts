@@ -16,6 +16,8 @@ export class DashboardDetailsComponent implements OnInit,AfterViewInit {
 
   ngOnInit() {
 
+    document.getElementById("liveLocationDiv").style.display="none";
+    document.getElementById("teamLocationDiv").style.display="none";
     
   }
   ngAfterViewInit() {
